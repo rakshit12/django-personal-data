@@ -1,0 +1,45 @@
+{% extends 'allfold\base.html' %}
+{% block content %}
+<style>
+  h2.BlogHead {
+      color: #0a0807;
+      font-style: italic;
+      font-weight: 700;
+      margin: 17px 17px 10px 10px;
+      padding: 25px;
+      font-size: 45px;
+  }
+  .blogh{
+        color: red;
+        font-style: italic;
+
+        font-size: 30px;
+
+
+
+  }
+  .text {
+      font-size: 20px;
+      text-align: justify;
+      margin: 12px;
+  }
+
+
+</style>
+
+
+<h2 class='BlogHead' align='center'>Rakshit has written {{ projects.count }} blogs</h2>
+<div class='container' >
+<div class='row'>
+
+
+{% for project in projects %}
+<div class="col-4 col-md-4">
+<a href="{% url 'blog:detail' project.id %}"><h2 class='blogh'  align='center'>{{ project.title }}</h2></a>
+<h5  align='center'>{{ project.date }}</h5>
+<p class='text'>{{ project.discription|truncatechars:100 }}</p>
+</div>
+{% endfor %}
+{% endblock %}
+</div>
+</div>

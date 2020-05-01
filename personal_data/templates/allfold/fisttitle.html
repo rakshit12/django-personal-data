@@ -1,0 +1,49 @@
+<style>
+  .imageshipu {
+    padding: 10px 12px 30px;
+}
+*{
+font-family: 'Comic Neue', cursive;
+
+}
+}
+
+  </style>
+
+
+
+
+{% extends 'allfold\base.html' %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+
+
+<h1 align='center'>NARUTO SHIPPUDEN</h1>
+{% load static %}
+<div class="imageshipu">
+<img src= "{% static 'all_files\thumb-1920-605592.png' %}" class="img-fluid rounded mx-auto d-block h-50 w-50" alt="Responsive image" align='center'>
+</div>
+<div class='container' >
+<div class='row'>
+{% for project in projects %}
+
+  <div class="col-4 col-md-4 mt-50">
+    {% if project.url %}
+    <a href="{{ project.url }}" >
+    {% endif %}
+    <img src='{{ project.image.url }}' class="img-fluid rounded mx-auto d-block px-auto" alt="Responsive image" style="width:250px; height:250px;">
+    </a>
+
+
+<h3  align='center' >{{ project.title }} </h3>
+<p  align='center' >{{ project.discription }}</p>
+
+
+</div>
+
+
+{% endfor %}
+{% endblock %}
+</div>
+</div>
